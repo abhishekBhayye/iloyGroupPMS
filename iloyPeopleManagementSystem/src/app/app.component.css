@@ -1,0 +1,5 @@
+.mainApp {
+  height: 100vh;
+  background: rgb(246,246,246);
+  background: linear-gradient(90deg, rgba(246,246,246,1) 43%, rgba(91,197,54,1) 100%);
+}
