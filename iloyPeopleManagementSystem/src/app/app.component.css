@@ -1,0 +1,10 @@
+.mainApp {
+  background: rgb(246,246,246);
+  background: linear-gradient(138deg, rgba(246,246,246,1) 0%, rgba(176,224,160,1) 45%, rgba(44,73,34,1) 100%);
+}
+
+@media (min-width: 800px) {
+  .mainApp {
+    height: 100vh;
+  }
+}
