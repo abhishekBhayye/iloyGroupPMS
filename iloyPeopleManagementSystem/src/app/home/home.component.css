@@ -4,7 +4,58 @@
   margin-top: 5%;
 }
 
+.section-text {
+  font-family: fantasy;
+  font-weight: bolder;
+}
+
 .section-image {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 5%;
+}
+
+.section-image > h5 {
+  width: 60%;
+  text-align: center;
+  color: floralwhite;
+  font-family: monospace;
+  font-weight: revert;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (min-width: 800px) {
+  .section-text > h1{
+    font-size: 65px;
+  }
+
+  .helloAnimation {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes example {
+    0%   {left:-20px; top:100px; }
+    25%  {left:420px; top:100px; }
+    50%  {left:150px; top:250px; }
+    75%  {background-color:white; left:-20px; top:250px; }
+    100% {background-color:white; left:-20px; top:100px; }
+  }
+
 }
