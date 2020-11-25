@@ -21,15 +21,20 @@
         </button>
       </div>
 
-
-      <ul>
-        <li *ngFor="let employee of node.listOfEmployee; let i = index">
+      <div cdkDropList
+      id="{{node.name}}"
+      [cdkDropListConnectedTo]="connectedTo"
+      [cdkDropListData]="node.listOfEmployee"
+      (cdkDropListDropped)="drop($event)">
+        <div class="listOfEmployees" *ngFor="let employee of node.listOfEmployee; let i = index" cdkDrag>
           {{employee.firstName}}
           {{employee.lastName}}
           {{employee.dateOfBirth}}
           {{employee.speciality}}
-        </li>
-      </ul>
+        </div>
+
+      </div>
+
     </mat-tree-node>
   </mat-tree>
 
