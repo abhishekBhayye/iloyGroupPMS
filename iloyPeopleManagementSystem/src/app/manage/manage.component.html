@@ -1,12 +1,26 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+<div class="container">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
 
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
 
-      {{node.name}}
+      <div class="scene scene--card">
+        <div class="card" (click)="status=!status"  [ngClass]="status ? 'is-flipped' : ''">
+          <div class="card__face card__face--front" >
+            {{node.name}}
+          </div>
+          <div class="card__face card__face--back">back</div>
+        </div>
+      </div>
 
-      <button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+      <div *ngIf="node.expandable == true">
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+      </div>
 
-      </button>
 
       <ul>
         <li *ngFor="let employee of node.listOfEmployee; let i = index">
@@ -18,3 +32,5 @@
       </ul>
     </mat-tree-node>
   </mat-tree>
+
+</div>
