@@ -8,12 +8,20 @@
           <div class="card__face card__face--front" >
             {{node.name}}
           </div>
-          <div class="card__face card__face--back">back</div>
+          <div class="card__face card__face--back">
+            <div *ngIf="node.expandable === false">
+              Number of Employees in {{node.name}} Department
+              <div class="row">
+                {{node.listOfEmployee.length}}
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
-      <div *ngIf="node.expandable == true">
-        <button mat-icon-button matTreeNodeToggle
+      <div *ngIf="node.expandable === true">
+        <button class="nodeButton" mat-icon-button matTreeNodeToggle
                 [attr.aria-label]="'Toggle ' + node.name">
           <mat-icon class="mat-icon-rtl-mirror">
             {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
@@ -25,12 +33,20 @@
       id="{{node.name}}"
       [cdkDropListConnectedTo]="connectedTo"
       [cdkDropListData]="node.listOfEmployee"
+      class="employeeInformation"
       (cdkDropListDropped)="drop($event)">
         <div class="listOfEmployees" *ngFor="let employee of node.listOfEmployee; let i = index" cdkDrag>
-          {{employee.firstName}}
-          {{employee.lastName}}
-          {{employee.dateOfBirth}}
-          {{employee.speciality}}
+
+          <!-- MODAL FOR THE EMPLOYEE INFORMATION -->
+          <button class="btn btn-info">{{employee.firstName}} {{employee.lastName}}
+            <div class="row smallContent">
+              DOB: {{employee.dateOfBirth}}
+            </div>
+            <div class="row smallContent">
+              {{employee.speciality}}
+            </div>
+          </button>
+
         </div>
 
       </div>

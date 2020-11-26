@@ -5,6 +5,54 @@
   bottom: 0;
   width: 100%;
   color: white;
-  text-align: center;
+}
 
+.container {
+  width: 100%;
+  padding: 8% 3% 10% 3%;
+}
+
+/* tr {
+  padding: 5%;
+}
+
+td {
+  font-size: 120%;
+  margin-bottom: 1.8em;
+  padding: 2%;
+  text-align: initial;
+} */
+
+.copyrightSection {
+  padding: 2%;
+  background-color: #191919;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.companyAddInfo {
+  display: flex;
+  font-size: 120%;
+}
+
+.companyAddInfoCard {
+  padding: 2%;
+  margin-bottom: 1.8em;
+}
+
+
+@media (max-width: 800px) {
+  .companyAddInfo{
+    flex-direction: column;
+  }
+
+  .companyAddInfoCard {
+    padding: 5% 10% 5% 5%
+  }
+}
+
+@media (min-width: 800px) {
+  .companyAddInfoCard{
+    width: 24%;;
+  }
 }

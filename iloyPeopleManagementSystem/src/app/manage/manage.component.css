@@ -38,23 +38,50 @@
 }
 
 .card__face--front {
-  background: red;
+  background: crimson;
+  padding-top: 35%;
 }
 
 .card__face--back {
-  background: blue;
+  background: lightseagreen;
   transform: rotateY(180deg);
+  font-size: small;
+  display: flex;
+  align-items: center;
 }
 
-.margin-bottom10 {
-  margin-bottom: 10px;
+.nodeButton {
+  height: 100px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.smallContent {
+  font-size: 12px;
+}
+
+/* .listOfEmployees {
+  background-color: white;
+  margin: 5px;
+} */
+
+.employeeInformation {
+  display: flex;
+  padding: 2%;
+  border-radius: 4px;
 }
 
 .listOfEmployees {
-  background-color: white;
-  margin: 5px;
+  margin: 3%;
+  cursor: move;
 }
 
+.modal {
+  top: 20%;
+}
 
 .cdk-drag-preview {
   box-sizing: border-box;
@@ -78,4 +105,21 @@
 
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.modal-content {
+  background-color: black;
+  color: white;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 800px) {
+  .employeeInformation {
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    max-height: 20vh;
+    border-radius: 4px;
+    overflow: scroll;
+  }
 }
