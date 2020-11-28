@@ -1,20 +1,57 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+<div class="container">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
 
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
 
-      {{node.name}}
+      <div class="scene scene--card">
+        <div class="card" (click)="status=!status"  [ngClass]="status ? 'is-flipped' : ''">
+          <div class="card__face card__face--front" >
+            {{node.name}}
+          </div>
+          <div class="card__face card__face--back">
+            <div *ngIf="node.expandable === false">
+              Number of Employees in {{node.name}} Department
+              <div class="row">
+                {{node.listOfEmployee.length}}
+              </div>
+            </div>
 
-      <button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+          </div>
+        </div>
+      </div>
 
-      </button>
+      <div *ngIf="node.expandable === true">
+        <button class="nodeButton" mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+      </div>
 
-      <ul>
-        <li *ngFor="let employee of node.listOfEmployee; let i = index">
-          {{employee.firstName}}
-          {{employee.lastName}}
-          {{employee.dateOfBirth}}
-          {{employee.speciality}}
-        </li>
-      </ul>
+      <div cdkDropList
+      id="{{node.name}}"
+      [cdkDropListConnectedTo]="connectedTo"
+      [cdkDropListData]="node.listOfEmployee"
+      class="employeeInformation"
+      (cdkDropListDropped)="drop($event)">
+        <div class="listOfEmployees" *ngFor="let employee of node.listOfEmployee; let i = index" cdkDrag>
+
+          <!-- MODAL FOR THE EMPLOYEE INFORMATION -->
+          <button class="btn btn-info">{{employee.firstName}} {{employee.lastName}}
+            <div class="row smallContent">
+              DOB: {{employee.dateOfBirth}}
+            </div>
+            <div class="row smallContent">
+              {{employee.speciality}}
+            </div>
+          </button>
+
+        </div>
+
+      </div>
+
     </mat-tree-node>
   </mat-tree>
+
+</div>

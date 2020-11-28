@@ -1,0 +1,125 @@
+.container {
+  height: 100vh;
+}
+
+.mat-tree {
+  background-color: unset;
+}
+
+.scene {
+  width: 100px;
+  height: 100px;
+  margin: 10px 0;
+  perspective: 600px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: crimson;
+  padding-top: 35%;
+}
+
+.card__face--back {
+  background: lightseagreen;
+  transform: rotateY(180deg);
+  font-size: small;
+  display: flex;
+  align-items: center;
+}
+
+.nodeButton {
+  height: 100px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.smallContent {
+  font-size: 12px;
+}
+
+/* .listOfEmployees {
+  background-color: white;
+  margin: 5px;
+} */
+
+.employeeInformation {
+  display: flex;
+  padding: 2%;
+  border-radius: 4px;
+}
+
+.listOfEmployees {
+  margin: 3%;
+  cursor: move;
+}
+
+.modal {
+  top: 20%;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.modal-content {
+  background-color: black;
+  color: white;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 800px) {
+  .employeeInformation {
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    max-height: 20vh;
+    border-radius: 4px;
+    overflow: scroll;
+  }
+}
