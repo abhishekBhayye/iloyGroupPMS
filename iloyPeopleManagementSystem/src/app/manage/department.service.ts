@@ -23,7 +23,7 @@ export class DepartmentService {
   }
 
   updateDepartmentInfo(department: any): Observable<any> {
-    return this.http.put('http://ngdepartmentserver.herokuapp.com/departmentInfo', department, { headers: this.headers }).pipe(
+    return this.http.put('https://ngdepartmentserver.herokuapp.com/departmentInfo', department, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     );
   }
