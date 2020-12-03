@@ -13,5 +13,22 @@ router.get('/', async (req,res) => {
     }
 });
 
+router.put('/', async (req, res) => {
+
+    try {
+
+        for(let i of req.body){
+            const updateDepartment = await DepartmentInfo.findOneAndUpdate(
+                {_id : i._id}, 
+                { $set: i}
+                );
+        }
+
+        res.json({message: "DATA UPDATED SUCCESSFULLY"});
+    }catch(err) {
+        res.json({message: err});
+    }
+
+});
 
 module.exports = router;

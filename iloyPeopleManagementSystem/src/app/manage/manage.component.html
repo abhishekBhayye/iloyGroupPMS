@@ -1,4 +1,12 @@
-<div class="container">
+<div class="loader" *ngIf="this.isDataLoaded == false"></div>
+
+<div class="container" *ngIf="this.isDataLoaded == true">
+
+  <div class="alert alert-success alert-dismissible" *ngIf="serviceMessage !== '' ">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{serviceMessage}}</strong>
+  </div>
+
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
 
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
@@ -53,5 +61,7 @@
 
     </mat-tree-node>
   </mat-tree>
+
+  <button class="btn btn-primary saveButton" (click)="saveChange(dataSource)">SAVE CHANGES</button>
 
 </div>
