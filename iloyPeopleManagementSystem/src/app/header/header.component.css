@@ -5,3 +5,25 @@
 a {
   color: white !important;
 }
+
+@media (min-width: 800px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    background-color: black;
+    width: 100%;
+    padding: 10px 16px;
+    z-index: 1;
+  }
+}
+
+.navbar-default {
+  border-color: black;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 20px;
+  font-family: emoji;
+  font-style: italic;
+  font-weight: bolder;
+}

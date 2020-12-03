@@ -5,4 +5,15 @@
   flex-direction: column;
 }
 
+.router {
+  min-height: 100vh;
+}
+
+@media (min-width: 800px) {
+  .router {
+    padding-top: 100px;
+  }
+}
+
+
 
